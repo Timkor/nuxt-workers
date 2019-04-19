@@ -5,11 +5,35 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+// https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
 
 export default {
-  components: {
-    Logo
+  
+  mounted() {
+
+    setInterval(() => {
+
+      const result = expensiveTask(100);
+
+      console.log(result);
+
+    }, 500);
+  },
+
+  methods: {
+
+    expensiveTask(time) {
+    
+      const start = Date.now()
+
+      let count = 0
+      
+      while (Date.now() - start < time) {
+          count++
+      }
+
+      return count;
+    }
   }
 }
 </script>

@@ -23,6 +23,8 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 
 # Nuxt Web Workers
+https://github.com/developit/workerize
+https://github.com/developit/workerize-loader
 
 # Why do we need Web Workers?
 https://stackoverflow.com/questions/2773682/what-are-the-use-cases-for-web-workers

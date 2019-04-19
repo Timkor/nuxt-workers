@@ -11,10 +11,15 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "babel-preset-env": "^1.7.0",
     "cross-env": "^5.2.0",
-    "nuxt": "^2.4.0"
+    "eventsource-polyfill": "^0.9.6",
+    "nuxt": "^2.4.0",
+    "workerize": "^0.1.7"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.18.9",
+    "worker-loader": "^2.0.0",
+    "workerize-loader": "^1.0.4"
   }
 }

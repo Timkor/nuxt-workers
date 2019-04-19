@@ -1,7 +1,7 @@
 import pkg from './package'
 
 export default {
-  mode: 'universal',
+  mode: 'spa',
 
   /*
   ** Headers of the page
@@ -41,14 +41,42 @@ export default {
   modules: [
   ],
 
+
+
   /*
   ** Build configuration
   */
-  build: {
+ build: {
+  babel: {
+    babelrc: false,
+    presets: [
+      [
+          '@nuxt/babel-preset-app',
+          {
+              modules: false,
+          },
+      ],
+    ]
+  },
+  
+  vendor: [],
+
     /*
     ** You can extend webpack config here
     */
-    extend(config, ctx) {
+    extend(config, {isDev, isClient}) {
+      
+
+      // @see https://github.com/nuxt/nuxt.js/pull/3480#issuecomment-404150387
+      config.output.globalObject = "this"
+
+      if (isClient) { // web workers are only available client-side
+        config.module.rules.push({
+          test: /\.worker\.js$/,
+          use: { loader: 'workerize-loader' },
+          exclude: /(node_modules)/
+        })
+      }
     }
   }
 }
